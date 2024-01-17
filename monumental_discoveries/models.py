@@ -21,7 +21,6 @@ STATUS = (
 
 # Create your models here.
 class User(models.Model):
-    user_id=models.CharField(primary_key=True, max_length=255)
     first_name=models.CharField(max_length=20)
     last_name=models.CharField(max_length=20)
     email=models.EmailField()
@@ -31,43 +30,39 @@ class User(models.Model):
     password=models.CharField(max_length=20)
     status=models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.email
+
 class State(models.Model):
-    state_id=models.CharField(primary_key=True, max_length=255)
     state_name=models.CharField(max_length=30)
 
 class City(models.Model):
-    city_id=models.CharField(primary_key=True, max_length=255)
     state_id=models.ForeignKey(State, on_delete=models.CASCADE)
     city_name=models.CharField(max_length=20)
 
 class Guide(models.Model):
-    guide_id=models.CharField(primary_key=True, max_length=255)
     first_name=models.CharField(max_length=20)
     last_name=models.CharField(max_length=20, blank=True, null=True)
     email=models.EmailField()
     phone_no=models.BigIntegerField(blank=True, null=True)
     password=models.CharField(max_length=20)
-    show_booking=models.CharField(max_length=200)
     status=models.BooleanField(default=True)
 
 class Monuments(models.Model):
-    monuments_id=models.CharField(primary_key=True, max_length=255)
     state_id=models.ForeignKey(State, on_delete=models.CASCADE)
     city_id=models.ForeignKey(City, on_delete=models.CASCADE)
     monuments_name=models.CharField(max_length=30)
-    image=models.ImageField(upload_to ='monuments_images/')
+    image=models.ImageField(upload_to ='monuments_images')
     monument_location=models.CharField(max_length=256)
     ticket_price=models.DecimalField(max_digits=6, decimal_places=2)
     description=models.TextField()
 
 class Audio(models.Model):
-    audio_id=models.CharField(primary_key=True, max_length=255)
     monuments_id=models.ForeignKey(Monuments, on_delete=models.CASCADE)
-    audio_file=models.FileField(upload_to='monuments_audio/')
+    audio_file=models.FileField(upload_to='monuments_audio')
     audio_language=models.CharField(max_length=30,choices=LANGUAGE_CHOICES)
 
 class GuideBooking(models.Model):
-    guide_booking_id=models.CharField(primary_key=True, max_length=255)
     user_id=models.ForeignKey(User, on_delete=models.CASCADE)
     guide_id=models.ForeignKey(Guide, on_delete=models.CASCADE)
     monuments_id=models.ForeignKey(Monuments, on_delete=models.CASCADE)
@@ -76,15 +71,13 @@ class GuideBooking(models.Model):
     status=models.CharField(max_length=30,choices=STATUS)
 
 class TicketBooking(models.Model):
-    ticket_booking_id=models.CharField(primary_key=True, max_length=255)
     user_id=models.ForeignKey(User, on_delete=models.CASCADE)
     booking_datetime=models.DateTimeField(default=datetime.now, blank=True)
     monuments_id=models.ForeignKey(Monuments, on_delete=models.CASCADE)
     number_of_person=models.IntegerField()
     status=models.CharField(max_length=30,choices=STATUS)
 
-class Payment(models.Model):
-    payment_id=models.CharField(primary_key=True, max_length=255)
+class Payment(models.Model): 
     user_id=models.ForeignKey(User, on_delete=models.CASCADE)
     guide_booking_id=models.ForeignKey(GuideBooking, on_delete=models.CASCADE)
     ticket_booking_id=models.ForeignKey(TicketBooking, on_delete=models.CASCADE)
@@ -93,13 +86,11 @@ class Payment(models.Model):
     payment_status=models.CharField(max_length=30,choices=STATUS)
 
 class Feedback(models.Model):
-    feedback_id=models.CharField(primary_key=True, max_length=255)
     user_id=models.ForeignKey(User, on_delete=models.CASCADE)
     review=models.TextField()
-    rating=models.CharField(max_length=200)
+    rating=models.CharField(max_length=20)
 
 class Complain(models.Model):
-    complain_id=models.CharField(primary_key=True, max_length=255)
     user_id=models.ForeignKey(User, on_delete=models.CASCADE)
     guide_id=models.ForeignKey(Guide, on_delete=models.CASCADE)
     comment=models.TextField()
