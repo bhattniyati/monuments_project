@@ -2,65 +2,126 @@
 {% load static %}
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>RegistrationForm_v1 by Colorlib</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<!-- MATERIAL DESIGN ICONIC FONT -->
-		<link rel="stylesheet" href="{% static 'signup_assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+    <meta charset="utf-8">
+    <title>RegistrationForm_v1 by Colorlib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="{% static 'signup_assets/css/style.css' %}">
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="{% static 'signup_assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="{% static 'signup_assets/css/style.css' %}">
+
+		<!-- CSS -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+	<!-- Default theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+	<!-- Semantic UI theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+	<!-- Bootstrap theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+
+    <!-- Add this in the <head> section of your HTML file -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/dist/css/alertify.min.css" />
+  	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 	</head>
 
 	<body>
+		 {% if messages %}
+    {% for originalMessage in messages %}
+        <script>
+            // Create an array with a single message
+            var singleMessageArray = ['{{ originalMessage|escapejs|safe }}'];
+
+			console.log("singleMessageArray:", singleMessageArray)
+            var sanitizedMessage = singleMessageArray.join(',').replace(/'/g, '"');
+            var parsedMessage;
+
+            console.log("sanitizedMessage:", sanitizedMessage)
+
+            try {
+                // Parse the message as JSON (assuming it is in a JSON-like format)
+                parsedMessage = JSON.parse('[' + sanitizedMessage + ']');
+            } catch (error) {
+                console.error('Error parsing message:', error);
+                // If parsing fails, log the original message
+                parsedMessage = sanitizedMessage.split(',');
+            }
+
+
+            var messageHTML = '<ul>';
+
+            parsedMessage.forEach(function (message) {
+                var messageString = String(message);
+
+                if (typeof messageString === 'string') {
+                    // Build the HTML string for each message separately
+                    messageHTML += '<li>' + messageString.trim() + '</li>';
+                } else {
+                    console.error('Invalid message type:', typeof message, message);
+                }
+            });
+
+            messageHTML += '</ul>';
+
+            // Display a single Alertify alert with the list of messages
+            alertify.alert(messageHTML);
+        </script>
+    {% endfor %}
+{% endif %}
+
 
 		<div class="wrapper" style="background-image: url({% static 'signup_assets/images/bg-1.jpeg' %});">
 			<div class="inner">
 				<div class="image-holder">
 					<img src="{% static 'signup_assets/images/taj-1.jpg' %}" style="height: 500px;" alt="">
 				</div>
-				<form action="">
+				<form action="signup" method="POST">
+					{% csrf_token %}
 					<h3>Registration Form</h3>
 					<div class="form-group">
-						<input type="text" placeholder="First Name" class="form-control">
-						<input type="text" placeholder="Last Name" class="form-control">
+						<input type="text" placeholder="First Name" name="fname" class="form-control">
+						<input type="text" placeholder="Last Name" name="lname" class="form-control">
 					</div>
 					<div class="form-wrapper">
-						<input type="text" placeholder="Username" class="form-control">
+						<input type="text" placeholder="Username" name="uname" class="form-control">
 						<i class="zmdi zmdi-account"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="text" placeholder="Email Address" class="form-control">
+						<input type="email" placeholder="Email Address" name="email" class="form-control">
 						<i class="zmdi zmdi-email"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="text" placeholder="Phone Number" class="form-control">
+						<input type="number" placeholder="Phone Number" name="phoneno" class="form-control">
 						<i class="zmdi zmdi-phone"></i>
 					</div>
 					<div class="form-wrapper">
-						<select name="" id="" class="form-control">
+						<select name="gender" id="gender" class="form-control">
 							<option value="" disabled selected>Gender</option>
 							<option value="male">Male</option>
-							<option value="femal">Female</option>
+							<option value="female">Female</option>
 							<option value="other">Other</option>
 						</select>
 						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="password" placeholder="Password" class="form-control">
+						<input type="password" placeholder="Password" name="password" class="form-control">
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="password" placeholder="Confirm Password" class="form-control">
+						<input type="password" placeholder="Confirm Password" name="cpassword" class="form-control">
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<button>Register
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>
+				</br>
+					<p style="font-size: 150%; align-content:center;">Already Registered? <a href="{% url 'login' %}">Login</a></p>
 				</form>
 			</div>
 		</div>
-		
+
 	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
