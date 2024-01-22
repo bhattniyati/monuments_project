@@ -15,7 +15,7 @@ Author URL: http://w3layouts.com
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Travelling a Travel Category Responsive Web Template | Home </title>
+    <title>Monumental Discoveries | Home </title>
     <link rel="stylesheet" href="{% static 'assets/css/style-freedom.css'%}">
 </head>
 
@@ -207,52 +207,6 @@ RIGHT SIDEBAR TOGGLE SECTION
 </div>
 
 <div id="right-sidebar" class="right-sidebar-notifcations nav-collapse">
-<div class="bs-example bs-example-tabs right-sidebar-tab-notification" data-example-id="togglable-tabs">
-
-    <div id="w3lDemoBar" class="w3l-demo-bar">
-        <div class="demo-btns">
-        <a href="https://w3layouts.com/?p=41743">
-            <span class="w3l-icon -back">
-                <span class="fa fa-arrow-left"></span>
-            </span>
-            <span class="w3l-text">Back</span>
-        </a>
-        <a href="https://w3layouts.com/?p=41743">
-            <span class="w3l-icon -download">
-                <span class="fa fa-download"></span>
-            </span>
-            <span class="w3l-text">Download</span>
-        </a>
-        <a href="https://w3layouts.com/checkout/?add-to-cart=41743" class="no-margin-bottom-mobile">
-            <span class="w3l-icon -buy">
-                <span class="fa fa-shopping-cart"></span>
-            </span>
-            <span class="w3l-text">Buy</span>
-        </a>
-    </div>
-        <!---<div class="responsive-icons">
-            <a href="#url" class="desktop-mode">
-                <span class="w3l-icon -desktop">
-                    <span class="fa fa-desktop"></span>
-                </span>
-            </a>
-            <a href="#url" class="tablet-mode">
-                <span class="w3l-icon -tablet">
-                    <span class="fa fa-tablet"></span>
-                </span>
-            </a>
-            <a href="#url" class="mobile-mode no-margin-bottom">
-                <span class="w3l-icon -mobile">
-                    <span class="fa fa-mobile"></span>
-                </span>
-            </a>
-        </div>-->
-    </div>
-    <div class="right-sidebar-panel-content animated fadeInRight" tabindex="5003"
-        style="overflow: hidden; outline: none;">
-    </div>
-</div>
-</div>
 </div>
 
 
@@ -284,7 +238,7 @@ RIGHT SIDEBAR TOGGLE SECTION
                     </div>
                     <div>
                         <h1>
-                            <a href="index.html" class="logo">Travelling</a>
+                            <a href="index.html" class="logo">Monumental Discoveries</a>
                             <!-- if logo is image enable this   
 						<a class="logo" href="index.html">
 							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
@@ -296,60 +250,12 @@ RIGHT SIDEBAR TOGGLE SECTION
                         <label for="nav" class="menu-bar"></label>
                         <nav>
                             <ul class="menu">
-                                <li><a href="index.html" class="link-nav">Home</a></li>
-                                <li><a href="about.html" class="link-nav">About</a></li>
-                                <li>
-                                    <!-- First Tier Drop Down -->
-                                    <label for="drop-2" class="toggle toogle-2">Pages <span class="fa fa-angle-down"
-                                            aria-hidden="true"></span></label>
-                                    <a href="#pages" class="link-nav dropdown-toggle">Pages <span
-                                            class="fa fa-angle-down" aria-hidden="true"></span></a>
-                                    <input type="checkbox" id="drop-2" />
-                                    <ul class="first-dropdwon">
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                        <li><a href="team.html">Team</a></li>
-                                        <li><a href="team-single.html">Team Member</a></li>
-                                        <li><a href="timeline.html">Timeline</a></li>
-                                        <li><a href="faq.html">Faq</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                        <li><a href="404.html">404</a></li>
-                                        <li><a href="search-results.html">Search Results</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="signup.html">Signup</a></li>
-                                        <li><a href="single.html">Single Page</a></li>
-                                        <li><a href="portfolio.html">Portfolio</a></li>
-                                        <li><a href="portfolio-single.html">Portfolio Single</a></li>
-                                        <li><a href="email-template.html">Email Template</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <label for="drop-3" class="toggle toogle-2">Blog <span class="fa fa-angle-down"
-                                            aria-hidden="true"></span></label>
-                                    <a href="#blog" class="link-nav dropdown-toggle">Blog <span class="fa fa-angle-down"
-                                            aria-hidden="true"></span></a>
-                                    <input type="checkbox" id="drop-3" />
-                                    <ul>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <label for="drop-4" class="toggle toogle-2">Shop <span class="fa fa-angle-down"
-                                            aria-hidden="true"></span></label>
-                                    <a href="#shop" class="link-nav dropdown-toggle">Shop <span class="fa fa-angle-down"
-                                            aria-hidden="true"></span></a>
-                                    <input type="checkbox" id="drop-4" />
-                                    <ul>
-                                        <li><a href="ecommerce.html">Ecommerce</a></li>
-                                        <li><a href="ecommerce-single.html">Ecommerce Single</a></li>
-                                        <li><a href="ecommerce-cart.html">Ecommerce Cart</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html" class="link-nav">Contact</a></li>
+                                <li><a class="link-nav">Home</a></li>
+                                <li><a href="{% url 'about' %}" class="link-nav">About</a></li>
+                                <li><a href="{% url 'services' %}" class="link-nav">Service</a></li>
+                                <li><a href="{% url 'contact' %}" class="link-nav">Contact</a></li>
                                 <li class="nav-right-sty">
-                                    <a href="book.html" class="actionbg">Book Now</a>
+                                    <a href="{% url 'services' %}" class="actionbg">Book Now</a>
                                 </li>
                             </ul>
                         </nav>
@@ -373,10 +279,11 @@ RIGHT SIDEBAR TOGGLE SECTION
                             <div class="cover-top-center-9">
                                 <div class="w3ls_cover_txt-9">
                                     <h6 class="tag-cover-9">Journey</h6>
-                                    <h3 class="title-cover-9">Exploring The World</h3>
-                                    <p class="para-cover-9">Once aute irure dolor in reprehenderit in voluptate velit
-                                        esse cillum dolore eu fugiat nulla pariatur consectetur adipiscing elit.</p>
-                                    <a href="single.html" class="actionbg button-cover-9">Learn More</a>
+                                    <h3 class="title-cover-9">Exploring The Incredible India!</h3>
+                                    <p class="para-cover-9">Embark on a journey through the heart of India, where
+                                        ancient traditions dance with vibrant colors, and every step leads to a
+                                        tapestry of history and culture waiting to be unraveled. </p>
+                                    <a href="{% url 'services' %}" class="actionbg button-cover-9">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -387,9 +294,8 @@ RIGHT SIDEBAR TOGGLE SECTION
                                 <div class="w3ls_cover_txt-9">
                                     <h6 class="tag-cover-9">Great Experience</h6>
                                     <h3 class="title-cover-9">For Traveling Anywhere</h3>
-                                    <p class="para-cover-9">Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum mollit anim id est.</p>
-                                    <a href="single.html" class="actionbg button-cover-9">Learn More</a>
+                                    <p class="para-cover-9">Discover the world with our comprehensive travel guide, a curated resource for wanderlust enthusiasts. Immerse yourself in vivid travel descriptions, expert recommendations, and invaluable insights to plan your next adventure.</p>
+                                    <a href="" class="actionbg button-cover-9">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -400,9 +306,8 @@ RIGHT SIDEBAR TOGGLE SECTION
                                 <div class="w3ls_cover_txt-9">
                                     <h6 class="tag-cover-9">Enjoy</h6>
                                     <h3 class="title-cover-9">Your Dream Vacation</h3>
-                                    <p class="para-cover-9">Sed ut perspiciatis unde omnis iste natus error sit
-                                        voluptatem accusantium doloremque laudantium sunt in culpa qui laborum.</p>
-                                    <a href="single.html" class="actionbg button-cover-9">Learn More</a>
+                                    <p class="para-cover-9">Explore the India confidently with our website, your trusted companion in unlocking the secrets of captivating destinations.</p>
+                                    <a href="" class="actionbg button-cover-9">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -411,11 +316,10 @@ RIGHT SIDEBAR TOGGLE SECTION
                         <div class="wrapper">
                             <div class="cover-top-center-9">
                                 <div class="w3ls_cover_txt-9">
-                                    <h6 class="tag-cover-9">What Next Country?</h6>
-                                    <h3 class="title-cover-9">Discover Night Francisco</h3>
-                                    <p class="para-cover-9">Totam rem aperiam, eaque ipsa quae ab illo inventore
-                                        veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                    <a href="single.html" class="actionbg button-cover-9">Learn More</a>
+                                    <h6 class="tag-cover-9">What Next City?</h6>
+                                    <h3 class="title-cover-9">Discover the India</h3>
+                                    <p class="para-cover-9">Embark on a global journey with our extensive travel guide—a meticulously curated source for those fueled by wanderlust. </p>
+                                    <a href="" class="actionbg button-cover-9">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -461,26 +365,26 @@ RIGHT SIDEBAR TOGGLE SECTION
                         <div class="section-input">
                             <div class="sec-grid-1">
                                 <select name="carlist" form="carform">
-                                    <option value="volvo">Aug 2019</option>
-                                    <option value="saab">Nov 2019</option>
-                                    <option value="opel">Dec 2019</option>
-                                    <option value="audi">Jan 2020</option>
-                                    <option value="audi">Feb 2020</option>
-                                    <option value="audi">Mar 2020</option>
-                                    <option value="audi">Apr 2020</option>
-                                    <option value="audi">May 2020</option>
-                                    <option value="audi">Jun 2020</option>
-                                    <option value="audi">Jul 2020</option>
-                                    <option value="audi">Aug 2020</option>
-                                    <option value="audi">Sep 2020</option>
-                                    <option value="audi">Nov 2020</option>
-                                    <option value="audi">Dec 2020</option>
+                                    <option value="volvo">March 2024</option>
+                                    <option value="saab">April 2024</option>
+                                    <option value="opel">May 2024</option>
+                                    <option value="audi">June 2024</option>
+                                    <option value="audi">July 2024</option>
+                                    <option value="audi">August 2024</option>
+                                    <option value="audi">September 2024</option>
+                                    <option value="audi">October 2024</option>
+                                    <option value="audi">November 2024</option>
+                                    <option value="audi">December 2024</option>
+                                    <option value="audi">January 2025</option>
+                                    <option value="audi">February 2025</option>
+                                    <option value="audi">March 2025</option>
+                                    <option value="audi">April 2025</option>
                                 </select>
                             </div>
                         </div>
                         <button class="btn buttonbg">Submit</button>
                     </form>
-                    <p class="sub-paragraph">By submitting this form, you authorize Travel and its partners to contact
+                    <p class="sub-paragraph">By submitting this form, you authorize partners will you contact
                         you for this enquiry.</p>
                 </div>
             </div>
@@ -492,35 +396,35 @@ RIGHT SIDEBAR TOGGLE SECTION
         <div class="grids-layout">
             <div class="wrapper">
                 <h3 class="title-main">Popular Destination</h3>
-                <p class="sub-title">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex
-                    ea commodo consequat.</p>
+                <p class="sub-title">India, a tapestry of wonders, boasts the timeless elegance of the Taj Mahal and
+                    the historic allure of Delhi's Red Fort, inviting exploration
+                    through its rich and diverse landscapes.</p>
                 <div class="d-grid grid-column-3">
                     <div class="gd-innf">
-                        <a href="single.html"><img class="img-responsive" src="{% static 'assets/images/grid1.jpg' %}" alt="image"></a>
-                        <h3><a href="single.html" class="vv-link">Paris</a></h3>
+                        <a href=""><img class="img-responsive" src="{% static 'assets/images/home-images/gj-1.jpeg' %}" alt="image" style="height: 250px; width:500px"></a>
+                        <h3><a href="" class="vv-link">Gujarat</a></h3>
                     </div>
                     <div class="gd-innf">
-                        <a href="single.html"><img class="img-responsive" src="{% static 'assets/images/grid2.jpg' %}" alt="image"></a>
-                        <h3><a href="single.html" class="vv-link">Thailand</a></h3>
+                        <a href=""><img class="img-responsive" src="{% static 'assets/images/home-images/rj-t2.jpg' %}" alt="image" style="height: 250px; width:500px"></a>
+                        <h3><a href="" class="vv-link">Rajasthan</a></h3>
                     </div>
                     <div class="gd-innf">
-                        <a href="single.html"><img class="img-responsive" src="{% static 'assets/images/grid3.jpg' %}" alt="image"></a>
-                        <h3><a href="single.html" class="vv-link">Greece</a></h3>
+                        <a href=""><img class="img-responsive" src="{% static 'assets/images/home-images/up-1.jpg' %}" alt="image" style="height: 250px; width:500px"></a>
+                        <h3><a href="" class="vv-link">Utter Pradesh</a></h3>
                     </div>
                 </div>
                 <div class="d-grid grid-column-3 second-grids">
                     <div class="gd-innf">
-                        <a href="single.html"><img class="img-responsive" src="{% static 'assets/images/grid5.jpg' %}" alt="image"></a>
-                        <h3><a href="single.html" class="vv-link">Spain</a></h3>
+                        <a href=""><img class="img-responsive" src="{% static 'assets/images/home-images/hm-1.jpg' %}" alt="image" style="height: 250px; width:500px"></a>
+                        <h3><a href="" class="vv-link">Himachal</a></h3>
                     </div>
                     <div class="gd-innf">
-                        <a href="single.html"><img class="img-responsive" src="{% static 'assets/images/grid4.jpg' %}" alt="image"></a>
-                        <h3><a href="single.html" class="vv-link">China</a></h3>
+                        <a href=""><img class="img-responsive" src="{% static 'assets/images/home-images/mp-1.jpg' %}" alt="image" style="height: 250px; width:500px"></a>
+                        <h3><a href="" class="vv-link">Madhya Pradesh</a></h3>
                     </div>
                     <div class="gd-innf">
-                        <a href="single.html"><img class="img-responsive" src="{% static 'assets/images/grid6.jpg' %}" alt="image"></a>
-                        <h3><a href="single.html" class="vv-link">Iceland</a></h3>
+                        <a href=""><img class="img-responsive" src="{% static 'assets/images/home-images/kerala-1.jpg' %}" alt="image" style="height: 250px; width:500px"></a>
+                        <h3><a href="" class="vv-link">Kerala</a></h3>
                     </div>
                 </div>
             </div>
@@ -533,11 +437,11 @@ RIGHT SIDEBAR TOGGLE SECTION
             <div class="wrapper">
                 <div class="action-main-29 align-center">
                     <h4 class="cal-action-text-29">
-                        <a href="book.html">Buy a Tour Without Leaving Your Home</a>
+                        <a href="{% url 'services' %}">Book a Tour Without Leaving Your Home</a>
                     </h4>
                     <p class="sub-paragraph actioncall-29">Using our website, you can easily find and book any tour you
                         want. Mobile users will definitely enjoy our app available on all devices.</p>
-                    <a href="book.html" class="buttonbg">Book Now</a>
+                    <a href="{% url 'services' %}" class="buttonbg">Book Now</a>
                 </div>
             </div>
         </div>
@@ -550,18 +454,15 @@ RIGHT SIDEBAR TOGGLE SECTION
                 <div class="callaction">
                     <div class="d-grid grid-col-2 grid-action-19">
                         <div class="column2-action-19">
-                            <a href="single.html"><img src="{% static 'assets/images/a1.jpg' %}" alt="" /></a>
+                            <a href=""><img src="{% static 'assets/images/a1.jpg' %}" alt="" /></a>
                         </div>
                         <div class="column1-action-19">
-                            <h2 class="call-head-action-19"><a href="single.html">explore a different way to travel</a>
+                            <h2 class="call-head-action-19"><a href="">explore a different way to travel</a>
                             </h2>
-                            <p class="call-para-action-19">Sed ut perspiciatis unde omnis iste natus error sit
-                                voluptatem
-                                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                veritatis et quasi architecto beatae.</p>
+                            <p class="call-para-action-19">Discover the world with our comprehensive travel guide, a curated resource for wanderlust enthusiasts. Immerse yourself in vivid travel descriptions, expert recommendations, and invaluable insights to plan your next adventure. Explore the globe confidently with our website, your trusted companion in unlocking the secrets of captivating destinations.</p>
                             <div class="main-action-19">
-                                <a href="single.html" class="buttonbg action-btn-19">Learn More</a>
-                                <a href="about.html" class="button button-dark">Explore</a>
+                                <a href="" class="buttonbg action-btn-19">Learn More</a>
+                                <a href="{% url 'about' %}" class="button button-dark">Explore</a>
                             </div>
                         </div>
                     </div>
@@ -579,127 +480,48 @@ RIGHT SIDEBAR TOGGLE SECTION
                         <div class="icon-bg">
                             <span class="fa fa-plane" aria-hidden="true"></span>
                         </div>
-                        <h4><a href="book.html" class="title-head">Air Tickets</a></h4>
-                        <p>In such lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiud tempor.</p>
-                        <a href="book.html" class="button">Read More </a>
+                        <h4><a href="{% url 'services' %}" class="title-head">Tour Booking</a></h4>
+                        <p>Experience the ease of hassle-free travel with our guide-tour booking services.
+                            Effortlessly plan your journey.</p>
+                        <a href="{% url 'services' %}" class="button">Read More </a>
                     </div>
                     <div class="grids-feature">
                         <div class="icon-bg">
                             <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
                         </div>
-                        <h4><a href="team.html" class="title-head">Tourist Guide</a></h4>
-                        <p>Ncididunt ut labore et dolore magna minim veniam, quis nostrud exercitation ullamco.</p>
-                        <a href="team.html" class="button">Read More </a>
+                        <h4><a href="{% url 'services' %}" class="title-head">Tourist Guide</a></h4>
+                        <p>Elevate your travel with our hassle-free guide booking service, ensuring seamless exploration at its best.</p>
+                        <a href="" class="button">Read More </a>
                     </div>
                     <div class="grids-feature">
                         <div class="icon-bg">
                             <span class="fa fa-bed" aria-hidden="true"></span>
                         </div>
-                        <h4><a href="book.html" class="title-head">Hotel Bookings</a></h4>
-                        <p>Duis aute irure dolor in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <a href="book.html" class="button">Read More </a>
+                        <h4><a href="{% url 'services' %}" class="title-head">Amazing Experience</a></h4>
+                        <p>Embark on an amazing experience with our unparalleled customer service. We go beyond expectations</p>
+                        <a href="{% url 'services' %}" class="button">Read More </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- //features -->
-    <!-- products -->
-    <section class="w3l-products-1">
-        <div class="products1">
-            <div class="wrapper">
-                <div class="products1-content">
-                    <div class="column">
-                        <a href="book.html"><img src="{% static 'assets/images/package1.jpg' %}" alt=""
-                                class="img-responsive img-fluid" /></a>
-                        <h4><a href="book.html">Italy, Venice</a></h4>
-                        <p>Starting at $45,99</p>
-                        <ul class="star">
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star-o" aria-hidden="true"></span></li>
-                            <span>4.0(76)</span>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <a href="book.html"><img src="{% static 'assets/images/package2.jpg' %}" alt=""
-                                class="img-responsive img-fluid" /></a>
-                        <h4><a href="book.html">Paris, France</a></h4>
-                        <p>Starting at $40,99</p>
-                        <ul class="star">
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star-o" aria-hidden="true"></span></li>
-                            <span>4.0(47)</span>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <a href="book.html"><img src="{% static 'assets/images/package3.jpg' %}" alt=""
-                                class="img-responsive img-fluid" /></a>
-                        <h4><a href="book.html">Island, Africa</a></h4>
-                        <p>Starting at $24,99</p>
-                        <ul class="star">
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star-o" aria-hidden="true"></span></li>
-                            <span>4.0(112)</span>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <a href="book.html"><img src="{% static 'assets/images/package5.jpg' %}" alt=""
-                                class="img-responsive img-fluid" /></a>
-                        <h4><a href="book.html">Benidorm, Spain </a></h4>
-                        <p>Starting at $19,99</p>
-                        <ul class="star">
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star-o" aria-hidden="true"></span></li>
-                            <span>4.0(32)</span>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <a href="book.html"><img src="{%static 'assets/images/package4.jpg' %}" alt=""
-                                class="img-responsive img-fluid" /></a>
-                        <h4><a href="book.html">Bangkok, Thailand</a></h4>
-                        <p>Starting at $39,99</p>
-                        <ul class="star">
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star" aria-hidden="true"></span></li>
-                            <li><span class="fa fa-star-o" aria-hidden="true"></span></li>
-                            <span>4.0(146)</span>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //products1 -->
     <!-- specifications -->
     <section class="w3l-specifications-9">
         <div class="main-w3">
             <div class="wrapper">
                 <div class="d-flex main-cont-wthree-fea">
                     <div class="grids-speci">
-                        <h3 class="title-spe">36</h3>
-                        <p>Countries</p>
+                        <h3 class="title-spe">45</h3>
+                        <p>Cities</p>
                     </div>
                     <div class="grids-speci midd-eff-spe">
-                        <h3 class="title-spe">15 Years</h3>
+                        <h3 class="title-spe">5 Years</h3>
                         <p>of Experience</p>
                     </div>
                     <div class="grids-speci">
-                        <h3 class="title-spe">950</h3>
-                        <p>Airlines</p>
+                        <h3 class="title-spe">50+</h3>
+                        <p>Guides</p>
                     </div>
                 </div>
             </div>
@@ -711,16 +533,14 @@ RIGHT SIDEBAR TOGGLE SECTION
         <div class="teams-32">
             <div class="wrapper">
                 <h3 class="title-main">Our Wonderful Team</h3>
-                <p class="sub-title">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex
-                    ea commodo consequat.</p>
+                <p class="sub-title">"At the heart of our success lies Our Wonderful Team, a dedicated and passionate group committed to excellence. </p>
                 <div class="d-grid grid-col-4 align-center main-contteam-32">
                     <div class="team-main-19">
                         <div class="column-19">
-                            <a href="team-single.html"><img class="img-fluid" src="{% static 'assets/images/team1.jpg' %}" alt=" "></a>
+                            <a href="team-"><img class="img-fluid" src="{% static 'assets/images/team1.jpg' %}" alt=" "></a>
                         </div>
                         <div class="right-team-9">
-                            <h6><a href="team-single.html" class="title-team-32">Chris Tina</a></h6>
+                            <h6><a href="team-" class="title-team-32">Chris Tina</a></h6>
                             <p class="sm-text-32">Tour Guide</p>
                             <div class="buttons-teams">
                                 <a href="#team"><span class="fa fa-facebook-square" aria-hidden="true"></span></a>
@@ -731,10 +551,10 @@ RIGHT SIDEBAR TOGGLE SECTION
                     </div>
                     <div class="team-main-19">
                         <div class="column-19">
-                            <a href="team-single.html"><img class="img-fluid" src="{% static 'assets/images/team2.jpg' %}" alt=" "></a>
+                            <a href="team-"><img class="img-fluid" src="{% static 'assets/images/team2.jpg' %}" alt=" "></a>
                         </div>
                         <div class="right-team-9">
-                            <h6><a href="team-single.html" class="title-team-32">Diego Morata</a></h6>
+                            <h6><a href="team-" class="title-team-32">Diego Morata</a></h6>
                             <p class="sm-text-32">Tour Consultant</p>
                             <div class="buttons-teams">
                                 <a href="#team"><span class="fa fa-facebook-square" aria-hidden="true"></span></a>
@@ -744,10 +564,10 @@ RIGHT SIDEBAR TOGGLE SECTION
                     </div>
                     <div class="team-main-19">
                         <div class="column-19">
-                            <a href="team-single.html"><img class="img-fluid" src="{% static 'assets/images/team3.jpg' %}" alt=" "></a>
+                            <a href="team-"><img class="img-fluid" src="{% static 'assets/images/team3.jpg' %}" alt=" "></a>
                         </div>
                         <div class="right-team-9">
-                            <h6><a href="team-single.html" class="title-team-32">Anton Brown</a></h6>
+                            <h6><a href="team-" class="title-team-32">Anton Brown</a></h6>
                             <p class="sm-text-32">Travel Agent</p>
                             <div class="buttons-teams">
                                 <a href="#team"><span class="fa fa-facebook-square" aria-hidden="true"></span></a>
@@ -757,10 +577,10 @@ RIGHT SIDEBAR TOGGLE SECTION
                     </div>
                     <div class="team-main-19">
                         <div class="column-19">
-                            <a href="team-single.html"><img class="img-fluid" src="{% static 'assets/images/team4.jpg' %}" alt=" "></a>
+                            <a href="team-"><img class="img-fluid" src="{% static 'assets/images/team4.jpg' %}" alt=" "></a>
                         </div>
                         <div class="right-team-9">
-                            <h6><a href="team-single.html" class="title-team-32">Nwoye Akachi</a></h6>
+                            <h6><a href="team-" class="title-team-32">Nwoye Akachi</a></h6>
                             <p class="sm-text-32">Agency Director</p>
                             <div class="buttons-teams">
                                 <a href="#team"><span class="fa fa-facebook-square" aria-hidden="true"></span></a>
@@ -780,9 +600,7 @@ RIGHT SIDEBAR TOGGLE SECTION
                 <div class="customers-top_sur">
                     <div class="customers-left_sur">
                         <div class="customers_grid">
-                            <p class="sub-test">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium
-                                doloremque laudantium, t quasi beatae vitae dicta sunt explicabo.</p>
+                            <p class="sub-test">Exceptional services for exploring Rajasthan! The service is genuine, and the guide's expertise is outstanding.Kudos!!</p>
                             <div class="customers-bottom_sur">
                                 <div class="custo-img-res">
                                     <img src="{% static 'assets/images/testi1.jpg' %}" alt=" " class="img img-responsive">
@@ -796,9 +614,8 @@ RIGHT SIDEBAR TOGGLE SECTION
                     </div>
                     <div class="customers-middle_sur">
                         <div class="customers_grid">
-                            <p class="sub-test">Nem ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium
-                                doloremque laudantium, t quasi beatae vitae dicta sunt explicabo.</p>
+                            <p class="sub-test">Booked a guide through this exceptional service provider for Gujarat, and the experience was truly incredible.
+                            </p>
                             <div class="customers-bottom_sur">
                                 <div class="custo-img-res">
                                     <img src="{% static 'assets/images/testi2.jpg' %}" alt=" " class="img img-responsive">
@@ -812,9 +629,7 @@ RIGHT SIDEBAR TOGGLE SECTION
                     </div>
                     <div class="customers-right_sur">
                         <div class="customers_grid">
-                            <p class="sub-test">Que ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium
-                                doloremque laudantium, t quasi beatae vitae dicta sunt explicabo.</p>
+                            <p class="sub-test">The service provider exceeded expectations when I booked a guide for Gujarat. The experience was truly remarkable.</p>
                             <div class="customers-bottom_sur">
                                 <div class="custo-img-res">
                                     <img src="{% static 'assets/images/testi3.jpg' %}" alt=" " class="img img-responsive">
@@ -838,34 +653,23 @@ RIGHT SIDEBAR TOGGLE SECTION
                 <div class="grid">
                     <div class="column">
                         <h2><a href="index.html" class="logo-2">Travelling</a></h2>
-                        <p>All rights reserved.<br>©2019 <a href="https://w3layouts.com/" target="_blank">W3layouts</a>
+                        <p>All rights reserved.<br>©2019 <a target="_blank">Monument Discoveries</a>
                         </p>
                     </div>
                     <div class="column">
                         <h3>About</h3>
                         <ul class="footer-gd-16">
-                            <li><a href="faq.html">FAQs</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="team.html">Travel Guides</a></li>
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'services' %}">Services</a></li>
+                            <li><a href="">Travel Guides</a></li>
                         </ul>
                     </div>
                     <div class="column">
                         <h3>Pages</h3>
                         <ul class="footer-gd-16">
-                            <li><a href="ecommerce.html">Products</a></li>
-                            <li><a href="blog.html">Blog Page</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="signup.html">Signup</a></li>
-                        </ul>
-                    </div>
-                    <div class="column column3">
-                        <h3>Explore</h3>
-                        <ul class="footer-gd-16">
-                            <li><a href="#help">Support Center</a></li>
-                            <li><a href="#terms">Terms & Conditions</a></li>
-                            <li><a href="#privacy">Privacy Policy</a></li>
+                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'signup' %}">Signup</a></li>
                         </ul>
                     </div>
                     <div class="column column4">
