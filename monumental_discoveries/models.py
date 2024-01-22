@@ -27,8 +27,7 @@ class User(models.Model):
     email=models.EmailField()
     phone_no=models.BigIntegerField(blank=True, null=True)
     gender=models.CharField(max_length=10,choices=GENDER_CHOICES)
-    address=models.TextField()
-    password=models.CharField(max_length=20)
+    password=models.TextField()
     status=models.BooleanField(default=True)
 
     def __str__(self):
