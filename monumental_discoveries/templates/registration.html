@@ -29,48 +29,15 @@
 	</head>
 
 	<body>
-		 {% if messages %}
+	{% if messages %}
     {% for originalMessage in messages %}
         <script>
-            // Create an array with a single message
-            var singleMessageArray = ['{{ originalMessage|escapejs|safe }}'];
-
-			console.log("singleMessageArray:", singleMessageArray)
-            var sanitizedMessage = singleMessageArray.join(',').replace(/'/g, '"');
-            var parsedMessage;
-
-            console.log("sanitizedMessage:", sanitizedMessage)
-
-            try {
-                // Parse the message as JSON (assuming it is in a JSON-like format)
-                parsedMessage = JSON.parse('[' + sanitizedMessage + ']');
-            } catch (error) {
-                console.error('Error parsing message:', error);
-                // If parsing fails, log the original message
-                parsedMessage = sanitizedMessage.split(',');
-            }
-
-
-            var messageHTML = '<ul>';
-
-            parsedMessage.forEach(function (message) {
-                var messageString = String(message);
-
-                if (typeof messageString === 'string') {
-                    // Build the HTML string for each message separately
-                    messageHTML += '<li>' + messageString.trim() + '</li>';
-                } else {
-                    console.error('Invalid message type:', typeof message, message);
-                }
-            });
-
-            messageHTML += '</ul>';
-
-            // Display a single Alertify alert with the list of messages
-            alertify.alert(messageHTML);
+            // Display a single Alertify alert with the message
+            alertify.alert('{{ originalMessage|safe }}');
         </script>
     {% endfor %}
 {% endif %}
+
 
 
 		<div class="wrapper" style="background-image: url({% static 'signup_assets/images/bg-1.jpeg' %});">
@@ -82,36 +49,35 @@
 					{% csrf_token %}
 					<h3>Registration Form</h3>
 					<div class="form-group">
-						<input type="text" placeholder="First Name" name="fname" class="form-control">
-						<input type="text" placeholder="Last Name" name="lname" class="form-control">
+						<input type="text" placeholder="First Name" name="fname" class="form-control" required>
+						<input type="text" placeholder="Last Name" name="lname" class="form-control" required>
 					</div>
 					<div class="form-wrapper">
-						<input type="text" placeholder="Username" name="uname" class="form-control">
+						<input type="text" placeholder="Username" name="uname" class="form-control" required>
 						<i class="zmdi zmdi-account"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="email" placeholder="Email Address" name="email" class="form-control">
+						<input type="email" placeholder="Email Address" name="email" class="form-control" required>
 						<i class="zmdi zmdi-email"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="number" placeholder="Phone Number" name="phoneno" class="form-control">
+						<input type="number" maxlength="10" placeholder="Phone Number" name="phoneno" class="form-control" required>
 						<i class="zmdi zmdi-phone"></i>
 					</div>
 					<div class="form-wrapper">
-						<select name="gender" id="gender" class="form-control">
+						<select name="gender" id="gender" class="form-control" required>
 							<option value="" disabled selected>Gender</option>
-							<option value="male">Male</option>
-							<option value="female">Female</option>
-							<option value="other">Other</option>
+							<option value="M">Male</option>
+							<option value="F">Female</option>
 						</select>
 						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="password" placeholder="Password" name="password" class="form-control">
+						<input type="password" placeholder="Password" name="password" class="form-control"required>
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="password" placeholder="Confirm Password" name="cpassword" class="form-control">
+						<input type="password" placeholder="Confirm Password" name="cpassword" class="form-control" required>
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<button>Register
