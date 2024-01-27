@@ -43,7 +43,7 @@ if(typeof _bsa !== 'undefined' && _bsa) {
   		_bsa.init('stickybox', 'CKYI653J', 'placement:w3layoutscom');
   	}
 })();
- function openCityPopup(stateName, stateId) {
+function openCityPopup(stateName, stateId) {
         // Display the corresponding cities for the selected state
         document.getElementById('selectedCityLabel').innerText = 'Select a City in ' + stateName + ':';
         var modal = document.getElementById("cityPopup");
@@ -80,12 +80,11 @@ if(typeof _bsa !== 'undefined' && _bsa) {
     }
 
     function selectCity(cityName) {
-        closeCityPopup(); // Close the popup when a city is selected
-        // Implement logic for handling the selected city dynamically
-        alert('You selected ' + cityName);
-        // You can modify this function to perform the desired action
-        // For example, redirecting to a page related to the selected city
-        // window.location.href = '/city/' + cityName;
+        closeCityPopup();
+        // Construct the URL dynamically
+        var url = "{% url 'booking_service' name='city_placeholder' %}".replace('city_placeholder', cityName);
+        // Redirect to the generated URL
+        window.location.href = url;
     }
 </script>
 <!--<script>(function(v,d,o,ai){ai=d.createElement("script");ai.defer=true;ai.async=true;ai.src=v.location.protocol+o;d.head.appendChild(ai);})(window, document, "//a.vdo.ai/core/w3layouts_V2/vdo.ai.js?vdo=34");</script>-->
@@ -435,13 +434,14 @@ RIGHT SIDEBAR TOGGLE SECTION
             <div class="d-grid grid-column-3">
                 {% for state in states %}
                     <div class="gd-innf">
-                        <a href="{% url 'booking_service' name='123' %}">
+                        <a href="">
                             <img class="img-responsive blur-image" src="{{state.image.url}}" alt="image" style="height: 250px;">
                         </a>
                         <div class="image-overlay">
                             <button class="select-city-button" onclick="openCityPopup('{{ state.state_name }}', {{ state.id }})">Select City</button>
                         </div>
-                        <h3><a href="{% url 'booking_service' name='123' %}" class="vv-link">{{state.state_name}}</a></h3>
+                        <h3><a href="" class="vv-link">{{state.state_name}}</a></h3>
+
                     </div>
                 {% endfor %}
             </div>

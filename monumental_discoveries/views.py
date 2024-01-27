@@ -51,8 +51,16 @@ def service(request):
     states = State.objects.all()
     return render(request, "services.html", context={'states': states})
 
-def booking_service(request):
-    return render(request, "booking_service.html")
+def booking_service(request, name):
+    context = {}
+    if name:
+        city = City.objects.filter(city_name__iexact=name).first()
+        if city:
+            if city.state_id.quote:
+                context['quote'] = city.state_id.quote
+            context['monuments'] = city.monuments_cities.all()
+
+    return render(request, "booking_service.html", context)
 
 def get_cities_view(request, state_id):
     state = get_object_or_404(State, pk=state_id)

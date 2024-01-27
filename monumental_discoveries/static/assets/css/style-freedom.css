@@ -2923,6 +2923,12 @@ a.button-dark {
   height:500px;
 }
 
+.w3l-inner-banner-main9-service-page .banner-9 {
+  background: url(../images/monu-images2.jpeg) no-repeat center;
+  background-size: cover;
+  height:500px;
+}
+
 .w3l-inner-banner-main .banner-9 {
   background: url(../images/inner2.jpg) no-repeat center;
 }
