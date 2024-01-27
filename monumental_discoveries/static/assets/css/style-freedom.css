@@ -2918,6 +2918,11 @@ a.button-dark {
   background: url(../images/ab-inner.jpg) no-repeat top;
 }
 
+.w3l-inner-banner-main9-service .banner-9 {
+  background: url(../images/service-banner.jpeg) no-repeat center;
+  height:500px;
+}
+
 .w3l-inner-banner-main .banner-9 {
   background: url(../images/inner2.jpg) no-repeat center;
 }
@@ -6764,8 +6769,18 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
   padding: 100px;
 }
 
+.w3l-content-23 .back-ser-1 {
+  background: url(../images/rj-monu.webp) no-repeat 0px 0px;
+  background-size: cover;
+}
+
+.w3l-content-23 .back-ser-2 {
+  background: url(../images/monu-guide.jpeg) no-repeat 0px 0px;
+  background-size: cover;
+}
+
 .w3l-content-23 .back-cont-1 {
-  background: url(../images/about1.jpg) no-repeat 0px 0px;
+  background: url(../images/home-images/ab-1.webp) no-repeat 0px 0px;
   background-size: cover;
 }
 

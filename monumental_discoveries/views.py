@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponseRedirect, redirect
 from django.contrib import messages
-from .models import User
+from .models import *
 from .utils import validate_data
 from django.contrib.auth.hashers import make_password
 
@@ -47,4 +47,8 @@ def contact(request):
     return render(request, "contact.html")
 
 def service(request):
-    return render(request, "portfolio.html")
+    states = State.objects.all()
+    return render(request, "services.html", context={'states': states})
+
+def booking_service(request):
+    return render(request, "booking_service.html")

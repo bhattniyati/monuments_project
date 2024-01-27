@@ -35,6 +35,10 @@ class User(models.Model):
 
 class State(models.Model):
     state_name=models.CharField(max_length=30)
+    image=models.ImageField(upload_to ='state_images', null=True, blank=True)
+
+    def __str__(self):
+        return self.state_name
 
 class City(models.Model):
     state_id=models.ForeignKey(State, on_delete=models.CASCADE)
@@ -95,6 +99,12 @@ class Complain(models.Model):
     guide_id=models.ForeignKey(Guide, on_delete=models.CASCADE)
     comment=models.TextField()
 
+class Enquiry(models.Model):
+    name=models.CharField(max_length=256)
+    phone_no=models.BigIntegerField()
+    email=models.EmailField()
+    message=models.TextField()
+    enquiry_date = models.CharField(max_length=256)
 
 
 

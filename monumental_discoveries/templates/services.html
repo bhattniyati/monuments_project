@@ -43,6 +43,19 @@ if(typeof _bsa !== 'undefined' && _bsa) {
   		_bsa.init('stickybox', 'CKYI653J', 'placement:w3layoutscom');
   	}
 })();
+ function openCityPopup(cityName) {
+        document.getElementById('selectedCityLabel').innerText = 'Select a City in ' + cityName + ':';
+        var modal = document.getElementById("cityPopup");
+        modal.style.display = "block";
+    }
+
+    function selectCity(cityName) {
+        // Implement logic for handling the selected city
+        alert('You selected ' + cityName);
+        // You can modify this function to perform the desired action
+        // For example, redirecting to a page related to the selected city
+        // window.location.href = '/city/' + cityName;
+    }
 </script>
 <!--<script>(function(v,d,o,ai){ai=d.createElement("script");ai.defer=true;ai.async=true;ai.src=v.location.protocol+o;d.head.appendChild(ai);})(window, document, "//a.vdo.ai/core/w3layouts_V2/vdo.ai.js?vdo=34");</script>-->
 <div id="codefund"><!-- fallback content --></div>
@@ -200,14 +213,89 @@ RIGHT SIDEBAR TOGGLE SECTION
       margin-bottom: 0;
   }
 }
+
+.blur-image {
+    filter: blur(1.5px); /* Adjust the blur intensity as needed */
+}
+
+.gd-innf {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; /* Adjust text color as needed */
+}
+
+.select-city-button {
+    /* Transparent white background with black border */
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #000; /* Black border */
+    /* Adjust font color accordingly */
+    color: #000; /* Black font color */
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Style for the overlay */
+
+  /* Style for the modal */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  }
+
+  /* Style for the modal content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+  }
+
+  /* Style for the close button in the modal */
+  .close {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  /* Style for the city buttons in the modal */
+  .modal-content button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(76, 175, 80, 0.8); /* Transparent background */
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  }
 </style>
 <div class="pull-right toggle-right-sidebar">
 <span class="fa title-open-right-sidebar tooltipstered fa-angle-double-right"></span>
 </div>
 
 </div>
-
-
     <!-- header -->
     <div class="w3l-headers-9">
         <header>
@@ -237,7 +325,7 @@ RIGHT SIDEBAR TOGGLE SECTION
                     <div>
                         <h1>
                             <a href="index.html" class="logo">Travelling</a>
-                            <!-- if logo is image enable this   
+                            <!-- if logo is image enable this
 						<a class="logo" href="index.html">
 							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
 						</a> -->
@@ -264,63 +352,83 @@ RIGHT SIDEBAR TOGGLE SECTION
         <!-- //header -->
     </div>
     <!-- inner banner -->
-    <section class="w3l-inner-banner-main">
+    <section class="w3l-inner-banner-main9-service">
         <div class="banner-9">
             <div class="wrapper">
                 <ul class="breadcrumbs-custom-path">
                     <li><a href="{% url 'home' %}">Home <span class="fa fa-angle-right" aria-hidden="true"></span></a></li>
-                    <li><a href="#pages">Pages <span class="fa fa-angle-right" aria-hidden="true"></span></a></li>
                     <li class="active">Contact</li>
+                    <p class="para-cover-9" style="margin: 10em; color: white; font-size: 22px;">Embark on a journey through the heart of India, where
+                                        ancient traditions dance with vibrant colors, and every step leads to a
+                                        tapestry of history and culture waiting to be unraveled. </p>
                 </ul>
             </div>
         </div>
     </section>
     <!-- //covers -->
-    <section class="w3l-contact-hny-6">
-        <!-- contact -->
-        <div class="contact-section">
-            <div class="map-fo">
-                <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24181.734554135484!2d72.57136263762344!3d23.022505693942993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3beea53e10e14f3d%3A0x590e178b8747222!2sAhmedabad%2C%20Gujarat%2C%20India!5e0!3m2!1sen!2sin!4v1643131961067"
-                        width="600"
-                        height="450"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                    ></iframe>
+    <!-- w3l-content-23 block -->
+	<section class="w3l-content-23">
+		<div id="content23-block">
+			<div class="wrapper">
+				<div class="content23-head text-center">
+					<h3>We Provide rich service to book travel guide and monuments</h3>
+				</div>
+				<div class="d-grid content23-col-2 text-center">
+					<div class="content23-grid back-ser-1">
+						<div class="content-texts">
+							<h4><a href="{% url 'services' %}">Book Monuments</a></h4>
+							<p>Our monument booking service ensures a seamless and hassle-free experience for individuals and
+                        groups looking to explore historical and cultural landmarks. </p>
+						</div>
+					</div>
+					<div class="content23-grid back-ser-2">
+						<div class="content-texts">
+							<h4><a href="{% url 'services' %}">Book Guide</a></h4>
+							<p>For those seeking personalized insights and a deeper understanding of their travel destinations, our guide booking service is tailored to meet your needs.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- w3l-content-23 block -->
+    <section class="w3l-grids-6">
+    <!-- grids -->
+    <div class="grids-layout">
+        <div class="wrapper">
+            <h3 class="title-main">Popular Destination</h3>
+            <p class="sub-title">India, a tapestry of wonders, boasts the timeless elegance of the Taj Mahal and
+                the historic allure of Delhi's Red Fort, inviting exploration
+                through its rich and diverse landscapes.</p>
 
-                <div class="resp-cont">
-                    <form action="#" method="post" class="contact-form">
-                        <h5>Contacts</h5>
-                        <p>We want to hear from you</p>
-                        <input type="text" placeholder="Name" name="w3lName" id="w3lName" required="">
-                        <input type="number" placeholder="Mobile" name="w3lName" id="w3Contact" required="">
-                        <input type="email" name="email" placeholder="Email" name="w3lSender" id="w3lSender"
-                            required="">
-                        <textarea placeholder="Message" name="w3lMessage" id="w3lMessage" required=""></textarea>
-                        <button type="submit" class="btn buttonbg">Send Now</button>
-                    </form>
-                </div>
-            </div>
-            <div class="contact-info-ad">
-                <div class="wrapper">
-                    <div class="grid">
-                        <div class="adress-lavi-info">
-                            <h3>Visit Us</h3>
-                            <p>Monument Discoveries
-                                <br>Ahmedabad, <br> Gujarat </p>
+            <div class="d-grid grid-column-3">
+                {% for state in states %}
+                    <div class="gd-innf">
+                        <a href="{% url 'booking_service' name='123' %}">
+                            <img class="img-responsive blur-image" src="{{state.image.url}}" alt="image" style="height: 250px;">
+                        </a>
+                        <div class="image-overlay">
+                            <button class="select-city-button" onclick="openCityPopup('{{ state.state_name }}')">Select City</button>
                         </div>
-                        <div class="adress-lavi-info">
-                            <h3>Contact Us</h3>
-                            <p><a href="tel:+1-800-999-800">+91-973-781-2057</a></p>
-                            <p><a href="tel:+7-800-999-800">+91-910-651-0346</a></p>
-                            <p><a href="https://p.w3layouts.com/cdn-cgi/l/email-protection#b6dfd8d0d9f6d3ced7dbc6dad398d5d9db" class="mail"><span class="__cf_email__" data-cfemail="e68b878f8aa6839e878b968a83c885898b">[monument.discovreris@gmail.com]</span></a></p>
-                        </div>
+                        <h3><a href="{% url 'booking_service' name='123' %}" class="vv-link">{{state.state_name}}</a></h3>
                     </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
-    </section>
+    </div>
+    <!-- //grids -->
+
+    <!-- Add this HTML for the popup/modal -->
+    <div id="cityPopup" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('cityPopup').style.display='none'">&times;</span>
+            <p id="selectedCityLabel" style="margin-bottom: 1em;">Select a City:</p>
+            <button class="select-city-button" onclick="selectCity('Ahmedabad')">Ahmedabad</button>
+            <button class="select-city-button" onclick="selectCity('Vadodara')">Vadodara</button>
+            <button class="select-city-button" onclick="selectCity('Junagarh')">Junagarh</button>
+        </div>
+    </div>
+</section>
     <!-- //contact -->
     <section class="w3l-footer-16">
         <!-- w3l-footer-16 -->
