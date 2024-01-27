@@ -3,7 +3,8 @@ from django.contrib import messages
 from .models import *
 from .utils import validate_data
 from django.contrib.auth.hashers import make_password
-
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
@@ -52,3 +53,10 @@ def service(request):
 
 def booking_service(request):
     return render(request, "booking_service.html")
+
+def get_cities_view(request, state_id):
+    state = get_object_or_404(State, pk=state_id)
+    cities = state.cities.values_list('city_name', flat=True)  # Assuming the related name for cities is 'city_set'
+
+    return JsonResponse(list(cities), safe=False)
+

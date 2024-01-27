@@ -43,14 +43,45 @@ if(typeof _bsa !== 'undefined' && _bsa) {
   		_bsa.init('stickybox', 'CKYI653J', 'placement:w3layoutscom');
   	}
 })();
- function openCityPopup(cityName) {
-        document.getElementById('selectedCityLabel').innerText = 'Select a City in ' + cityName + ':';
+ function openCityPopup(stateName, stateId) {
+        // Display the corresponding cities for the selected state
+        document.getElementById('selectedCityLabel').innerText = 'Select a City in ' + stateName + ':';
         var modal = document.getElementById("cityPopup");
         modal.style.display = "block";
+
+        // Fetch cities for the selected state via AJAX
+        fetch('/get_cities/' + stateId)
+            .then(response => response.json())
+            .then(data => {
+                // Render city buttons dynamically
+                renderCities(data);
+            });
+    }
+
+    function renderCities(cities) {
+        var citiesContainer = document.getElementById('citiesContainer');
+        citiesContainer.innerHTML = '';
+
+        for (var i = 0; i < cities.length; i++) {
+            var city = cities[i];
+            var button = document.createElement('button');
+            button.className = 'select-city-button';
+            button.textContent = city;
+            button.onclick = function () {
+                selectCity(this.textContent);
+            };
+            citiesContainer.appendChild(button);
+        }
+    }
+
+    function closeCityPopup() {
+        var modal = document.getElementById("cityPopup");
+        modal.style.display = "none";
     }
 
     function selectCity(cityName) {
-        // Implement logic for handling the selected city
+        closeCityPopup(); // Close the popup when a city is selected
+        // Implement logic for handling the selected city dynamically
         alert('You selected ' + cityName);
         // You can modify this function to perform the desired action
         // For example, redirecting to a page related to the selected city
@@ -408,7 +439,7 @@ RIGHT SIDEBAR TOGGLE SECTION
                             <img class="img-responsive blur-image" src="{{state.image.url}}" alt="image" style="height: 250px;">
                         </a>
                         <div class="image-overlay">
-                            <button class="select-city-button" onclick="openCityPopup('{{ state.state_name }}')">Select City</button>
+                            <button class="select-city-button" onclick="openCityPopup('{{ state.state_name }}', {{ state.id }})">Select City</button>
                         </div>
                         <h3><a href="{% url 'booking_service' name='123' %}" class="vv-link">{{state.state_name}}</a></h3>
                     </div>
@@ -421,11 +452,9 @@ RIGHT SIDEBAR TOGGLE SECTION
     <!-- Add this HTML for the popup/modal -->
     <div id="cityPopup" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="document.getElementById('cityPopup').style.display='none'">&times;</span>
+            <span class="close" onclick="closeCityPopup()">&times;</span>
             <p id="selectedCityLabel" style="margin-bottom: 1em;">Select a City:</p>
-            <button class="select-city-button" onclick="selectCity('Ahmedabad')">Ahmedabad</button>
-            <button class="select-city-button" onclick="selectCity('Vadodara')">Vadodara</button>
-            <button class="select-city-button" onclick="selectCity('Junagarh')">Junagarh</button>
+            <div id="citiesContainer"></div>
         </div>
     </div>
 </section>

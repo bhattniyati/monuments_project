@@ -41,8 +41,11 @@ class State(models.Model):
         return self.state_name
 
 class City(models.Model):
-    state_id=models.ForeignKey(State, on_delete=models.CASCADE)
+    state_id=models.ForeignKey(State, on_delete=models.CASCADE, related_name='cities')
     city_name=models.CharField(max_length=20)
+
+    def __str__(self):
+        return f"{self.city_name} || {self.state_id.state_name}"
 
 class Guide(models.Model):
     first_name=models.CharField(max_length=20)
@@ -53,8 +56,8 @@ class Guide(models.Model):
     status=models.BooleanField(default=True)
 
 class Monuments(models.Model):
-    state_id=models.ForeignKey(State, on_delete=models.CASCADE)
-    city_id=models.ForeignKey(City, on_delete=models.CASCADE)
+    state_id=models.ForeignKey(State, on_delete=models.CASCADE, related_name='monuments_state')
+    city_id=models.ForeignKey(City, on_delete=models.CASCADE, related_name='monuments_cities')
     monuments_name=models.CharField(max_length=30)
     image=models.ImageField(upload_to ='monuments_images')
     monument_location=models.CharField(max_length=256)

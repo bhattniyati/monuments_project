@@ -9,6 +9,7 @@ urlpatterns = [
     path('contact',views.contact, name='contact'),
     path('services',views.service, name='services'),
     path('booking-service/<str:name>',views.booking_service, name='booking_service'),
+    path('get_cities/<int:state_id>/', views.get_cities_view, name='get_cities'),
 ]
 
 
