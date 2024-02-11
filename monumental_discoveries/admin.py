@@ -5,7 +5,6 @@ from monumental_discoveries.models import *
 admin.site.register(User)
 admin.site.register(State)
 admin.site.register(City)
-admin.site.register(Guide)
 admin.site.register(Monuments)
 admin.site.register(Audio)
 admin.site.register(GuideBooking)

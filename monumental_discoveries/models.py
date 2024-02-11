@@ -21,13 +21,13 @@ STATUS = (
 
 # Create your models here.
 class User(models.Model):
-    first_name=models.CharField(max_length=20)
-    last_name=models.CharField(max_length=20)
     username=models.CharField(max_length=50)
     email=models.EmailField()
     phone_no=models.BigIntegerField(blank=True, null=True)
     gender=models.CharField(max_length=10,choices=GENDER_CHOICES)
     password=models.TextField()
+    dp=models.ImageField(upload_to="GUIDE_PHOTOS",null=True)
+    role=models.CharField(max_length=20)
     status=models.BooleanField(default=True)
 
     def __str__(self):
@@ -48,18 +48,10 @@ class City(models.Model):
     def __str__(self):
         return f"{self.city_name} || {self.state_id.state_name}"
 
-class Guide(models.Model):
-    first_name=models.CharField(max_length=20)
-    last_name=models.CharField(max_length=20, blank=True, null=True)
-    email=models.EmailField()
-    phone_no=models.BigIntegerField(blank=True, null=True)
-    password=models.CharField(max_length=20)
-    status=models.BooleanField(default=True)
-
 class Monuments(models.Model):
     state_id=models.ForeignKey(State, on_delete=models.CASCADE, related_name='monuments_state')
     city_id=models.ForeignKey(City, on_delete=models.CASCADE, related_name='monuments_cities')
-    monuments_name=models.CharField(max_length=30)
+    monuments_name=models.CharField(max_length=40)
     image=models.ImageField(upload_to ='monuments_images')
     monument_location=models.TextField()
     ticket_price=models.DecimalField(max_digits=6, decimal_places=2)
@@ -72,7 +64,6 @@ class Audio(models.Model):
 
 class GuideBooking(models.Model):
     user_id=models.ForeignKey(User, on_delete=models.CASCADE)
-    guide_id=models.ForeignKey(Guide, on_delete=models.CASCADE)
     monuments_id=models.ForeignKey(Monuments, on_delete=models.CASCADE)
     booking_datetime=models.DateTimeField(default=datetime.now, blank=True)
     rate=models.DecimalField(max_digits=6, decimal_places=2)
@@ -100,7 +91,6 @@ class Feedback(models.Model):
 
 class Complain(models.Model):
     user_id=models.ForeignKey(User, on_delete=models.CASCADE)
-    guide_id=models.ForeignKey(Guide, on_delete=models.CASCADE)
     comment=models.TextField()
 
 class Enquiry(models.Model):
